@@ -31,10 +31,11 @@ public class main {
 						int opcion2 = entrada.nextInt();
 
 						if (opcion2 == 0) {
-						} else if (opcion2 == 1) {
+							salir2 = true;
+						} else if (opcion2 == 1) { //hecho
 							// INSERTAR EMPLEADO
 							conexion.insertarEmpleado();
-						} else if (opcion2 == 2) {
+						} else if (opcion2 == 2) { //hecho
 							// MODIFICAR EMPLEADO
 							conexion.modificarEmpleado();
 						} else if (opcion2 == 3) {
@@ -65,10 +66,10 @@ public class main {
 
 						if (opcion2 == 0) {
 							salir2 = true;
-						} else if (opcion2 == 1) {
+						} else if (opcion2 == 1) { //hecho
 							// INSERTAR DEPARTAMENTO
 							conexion.insertarDepartamento();
-						} else if (opcion2 == 2) {
+						} else if (opcion2 == 2) { //hecho
 							// MODIFICAR DEPARTAMENTO
 							conexion.modificarDepartamento();
 						} else if (opcion2 == 3) {

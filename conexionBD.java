@@ -88,7 +88,7 @@ public class conexionBD {
 			ps.setString(5, id);
 
 			actualizarPS(ps);
-			
+
 			listarEmpleados();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -128,7 +128,7 @@ public class conexionBD {
 				PreparedStatement ps3 = connection_.prepareStatement(sql3);
 				System.out.print("Introduce el nuevo apellido: ");
 				String apellido = entrada.next();
-				ps3.setString(3, apellido);
+				ps3.setString(1, apellido);
 				ps3.setString(2, dni);
 				actualizarPS(ps3);
 			} else if (opcion == 4) {
@@ -136,7 +136,7 @@ public class conexionBD {
 				PreparedStatement ps4 = connection_.prepareStatement(sql4);
 				System.out.print("Introduce el nuevo salario: ");
 				String salario = entrada.next();
-				ps4.setString(4, salario);
+				ps4.setString(1, salario);
 				ps4.setString(2, dni);
 				actualizarPS(ps4);
 			} else if (opcion == 5) {
@@ -144,7 +144,7 @@ public class conexionBD {
 				PreparedStatement ps5 = connection_.prepareStatement(sql5);
 				System.out.print("Introduce el nuevo ID de Departamento: ");
 				String id = entrada.next();
-				ps5.setString(5, id);
+				ps5.setString(1, id);
 				ps5.setString(2, dni);
 				actualizarPS(ps5);
 			}
@@ -163,7 +163,7 @@ public class conexionBD {
 			Scanner entrada = new Scanner(System.in);
 			System.out.print("Empleado a buscar (NIF): ");
 			String dni = entrada.next();
-			String sql1 = "DELETE `empleado` WHERE `nif`= ?;\n";
+			String sql1 = "DELETE FROM `empleado` WHERE `nif` LIKE ?;\n";
 			PreparedStatement ps1 = connection_.prepareStatement(sql1);
 			ps1.setString(1, dni);
 			actualizarPS(ps1);
@@ -181,11 +181,11 @@ public class conexionBD {
 		try {
 			Scanner entrada = new Scanner(System.in);
 			System.out.print("Departamento a buscar (ID): ");
-			String id = entrada.next();
+			int id = entrada.nextInt();
 			String sql1 = "DELETE `departamento` WHERE `id`= ?;\n";
 			PreparedStatement ps1 = connection_.prepareStatement(sql1);
-			ps1.setString(1, id);
-			actualizarPS(ps1);
+			ps1.setInt(1, id);
+			//actualizarPS(ps1);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -200,17 +200,17 @@ public class conexionBD {
 		try {
 			Scanner entrada = new Scanner(System.in);
 			System.out.print("Departamento a buscar (ID): ");
-			String id = entrada.next();
+			int id = entrada.nextInt();
 			System.out.print("Modificar ID(1) , Nombre(2). Que desea modifcar: ");
 			int opcion = entrada.nextInt();
 			if (opcion == 1) {
 				String sql1 = "UPDATE `departamento` SET `id`= ? WHERE `id`= ?;\n";
-
 				PreparedStatement ps1 = connection_.prepareStatement(sql1);
 				System.out.print("Introduce el nuevo ID: ");
-				String id_depart = entrada.next();
-				ps1.setString(1, id_depart);
-				ps1.setString(2, id);
+				int id_depart = entrada.nextInt();
+
+				ps1.setInt(1, id_depart);
+				ps1.setInt(2, id);
 				actualizarPS(ps1);
 			} else if (opcion == 2) {
 				String sql2 = "UPDATE `departamento` SET `nombre`= ? WHERE `id`= ?;\n";
@@ -218,7 +218,7 @@ public class conexionBD {
 				System.out.print("Introduce el nuevo nombre: ");
 				String nombre = entrada.next();
 				ps2.setString(1, nombre);
-				ps2.setString(2, id);
+				ps2.setInt(2, id);
 				actualizarPS(ps2);
 			}
 			listarDepartamentos();
@@ -261,10 +261,10 @@ public class conexionBD {
 			ps.setString(2, nombre);
 
 			actualizarPS(ps);
-			
-			//IMPRIMIR TODOS LOS DEPARTAMENTOS PARA QUE SE VEA EL INTRODUCIDO
+
+			// IMPRIMIR TODOS LOS DEPARTAMENTOS PARA QUE SE VEA EL INTRODUCIDO
 			listarDepartamentos();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -272,7 +272,6 @@ public class conexionBD {
 		}
 
 	}
-
 
 	public void listarEmpleados() {
 		try {
