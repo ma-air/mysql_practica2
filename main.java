@@ -32,7 +32,7 @@ public class main {
 
 						if (opcion2 == 0) {
 							salir2 = true;
-						} else if (opcion2 == 1) { //hecho
+						} else if (opcion2 == 1) { //hecho  //TODO validar datos de entrada, no puedes poner un id de departamento que no existe
 							// INSERTAR EMPLEADO
 							conexion.insertarEmpleado();
 						} else if (opcion2 == 2) { //hecho
