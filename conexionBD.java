@@ -88,7 +88,8 @@ public class conexionBD {
 			ps.setString(5, id);
 
 			actualizarPS(ps);
-
+			
+			listarEmpleados();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -148,6 +149,7 @@ public class conexionBD {
 				actualizarPS(ps5);
 			}
 
+			listarEmpleados();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -171,6 +173,7 @@ public class conexionBD {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		listarEmpleados();
 
 	}
 
@@ -190,6 +193,7 @@ public class conexionBD {
 			e.printStackTrace();
 		}
 
+		listarDepartamentos();
 	}
 
 	public void modificarDepartamento() {
@@ -217,6 +221,7 @@ public class conexionBD {
 				ps2.setString(2, id);
 				actualizarPS(ps2);
 			}
+			listarDepartamentos();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -256,7 +261,10 @@ public class conexionBD {
 			ps.setString(2, nombre);
 
 			actualizarPS(ps);
-
+			
+			//IMPRIMIR TODOS LOS DEPARTAMENTOS PARA QUE SE VEA EL INTRODUCIDO
+			listarDepartamentos();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -264,6 +272,7 @@ public class conexionBD {
 		}
 
 	}
+
 
 	public void listarEmpleados() {
 		try {
