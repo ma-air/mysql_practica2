@@ -36,13 +36,16 @@ public class main {
 							conexion.insertarEmpleado();
 						} else if (opcion2 == 2) {
 							// MODIFICAR EMPLEADO
+							conexion.modificarEmpleado();
 						} else if (opcion2 == 3) {
 							// BORRAR EMPLEADO
+							conexion.eliminarEmpleado();
 						} else if (opcion2 == 4) {
 							// LISTAR EMPLEADOS
 							conexion.listarEmpleados();
 						} else if (opcion2 == 5) {
 							// LISTAR EMPLEADOS DE UN DEPARTAMENTO
+							conexion.listarEmpleadosDepartamento();
 						} else if (opcion2 == 6) {
 							// CONSULTAR EMPLEADO POR DNI
 							conexion.consultarEmpleadoDni();
@@ -64,19 +67,25 @@ public class main {
 							salir2 = true;
 						} else if (opcion2 == 1) {
 							// INSERTAR DEPARTAMENTO
+							conexion.insertarDepartamento();
 						} else if (opcion2 == 2) {
 							// MODIFICAR DEPARTAMENTO
+							conexion.modificarDepartamento();
 						} else if (opcion2 == 3) {
 							// ELIMINAR DEPARTAMENTO
+							conexion.eliminarDepartamento();
 						} else if (opcion2 == 4) {
 							// LISTAR DEPARTAMENTOS
+							conexion.listarDepartamentos();
 						} else if (opcion2 == 5) {
 							System.out.println("Por nombre (1) o por ID (0)");
 							int opcion3 = entrada.nextInt();
 							if (opcion3 == 1) {
 								// BUSCAR DEPARTAMENTO POR NOMBRE
+								conexion.consultarDepartamentoNombre();
 							} else if (opcion3 == 2) {
 								// BUSCAR DEPARTAMENTO POR ID
+								conexion.consultarDepartamentoID();
 							}
 						} else if (opcion2 == 6) {
 							//SUBIR SUELDO DE EMPLEADOS DE UN DEPARTAMENTO	
