@@ -1,9 +1,8 @@
-package practica2;
+package mysql_practica2;
 
 import java.util.InputMismatchException;
 
 import java.util.Scanner;
-
 
 public class main {
 
@@ -22,6 +21,7 @@ public class main {
 				entrada.nextLine();
 				if (opcion == 0) {
 					System.out.println("HEMOS SALIDO SATISFACTORIAMENTE");
+					conexion.cerrarConexion();
 					salir = true;
 				} else if (opcion == 1) {
 					while (!salir2) {
@@ -32,37 +32,54 @@ public class main {
 
 						if (opcion2 == 0) {
 						} else if (opcion2 == 1) {
+							// INSERTAR EMPLEADO
 							conexion.insertarEmpleado();
 						} else if (opcion2 == 2) {
-
+							// MODIFICAR EMPLEADO
 						} else if (opcion2 == 3) {
+							// BORRAR EMPLEADO
 						} else if (opcion2 == 4) {
+							// LISTAR EMPLEADOS
+							conexion.listarEmpleados();
 						} else if (opcion2 == 5) {
+							// LISTAR EMPLEADOS DE UN DEPARTAMENTO
 						} else if (opcion2 == 6) {
+							// CONSULTAR EMPLEADO POR DNI
+							conexion.consultarEmpleadoDni();
 						} else if (opcion2 == 7) {
+							// CONSULTAR EMPLEADO CON SALARIO SUPERIOR A
+							conexion.consultarSalarioMayor();
 						} else if (opcion2 == 8) {
+							// CONSULTAR EMPLEADO CON SALARIO IGUAL O INFERIOR A
+							conexion.consultarSalarioInferior();
 						}
 					}
 				} else if (opcion == 2) {
 					while (!salir2) {
 						System.out.print(
-								"\n0.Volver al menu inicial\n1.Insertar departamento\n2.Modificar departamento\n3.Eliminar departamento\n4.Listar departamentos\n5.Ver información de un departamento\n\t******ELIGE EL NUMERO QUE DESEE******: ");
+								"\n0.Volver al menu inicial\n1.Insertar departamento\n2.Modificar departamento\n3.Eliminar departamento\n4.Listar departamentos\n5.Ver información de un departamento\n6.Subir sueldo a todos los empleados de un departamento.\n\t******ELIGE EL NUMERO QUE DESEE******: ");
 						int opcion2 = entrada.nextInt();
 
 						if (opcion2 == 0) {
 							salir2 = true;
 						} else if (opcion2 == 1) {
+							// INSERTAR DEPARTAMENTO
 						} else if (opcion2 == 2) {
+							// MODIFICAR DEPARTAMENTO
 						} else if (opcion2 == 3) {
+							// ELIMINAR DEPARTAMENTO
 						} else if (opcion2 == 4) {
+							// LISTAR DEPARTAMENTOS
 						} else if (opcion2 == 5) {
-							System.out.println("Por nombre (1) o por DNI (0)");
+							System.out.println("Por nombre (1) o por ID (0)");
 							int opcion3 = entrada.nextInt();
 							if (opcion3 == 1) {
-
+								// BUSCAR DEPARTAMENTO POR NOMBRE
 							} else if (opcion3 == 2) {
-
+								// BUSCAR DEPARTAMENTO POR ID
 							}
+						} else if (opcion2 == 6) {
+							//SUBIR SUELDO DE EMPLEADOS DE UN DEPARTAMENTO	
 						}
 					}
 				} else {

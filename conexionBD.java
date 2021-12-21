@@ -1,4 +1,4 @@
-package practica2;
+package mysql_practica2;
 
 import java.sql.Connection;
 
@@ -70,7 +70,7 @@ public class conexionBD {
 
 	}
 
-	public void consulta1() {
+	public void listarEmpleados() {
 		try {
 			Statement st_ = connection_.createStatement();
 			String sql = "Select * from empleado";
@@ -92,7 +92,7 @@ public class conexionBD {
 
 	}
 
-	public void consulta2() {
+	public void consultarEmpleadoDni() {
 		try {
 			Statement st_ = connection_.createStatement();
 			Scanner entrada = new Scanner(System.in);
@@ -117,7 +117,7 @@ public class conexionBD {
 
 	}
 
-	public void consulta3() {
+	public void consultarSalarioMayor() {
 		try {
 			Statement st_ = connection_.createStatement();
 			Scanner entrada = new Scanner(System.in);
@@ -142,7 +142,7 @@ public class conexionBD {
 
 	}
 
-	public void consulta4() {
+	public void consultarSalarioInferior() {
 		try {
 			Statement st_ = connection_.createStatement();
 			Scanner entrada = new Scanner(System.in);
