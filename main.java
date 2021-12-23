@@ -1,12 +1,13 @@
 package mysql_practica2;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 
 import java.util.Scanner;
 
 public class main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		Scanner entrada = new Scanner(System.in);
 		boolean salir = false, salir2 = false;
 		conexionBD conexion = new conexionBD();
@@ -32,28 +33,28 @@ public class main {
 
 						if (opcion2 == 0) {
 							salir2 = true;
-						} else if (opcion2 == 1) { //hecho  //TODO validar datos de entrada, no puedes poner un id de departamento que no existe
+						} else if (opcion2 == 1) { //hecho 
 							// INSERTAR EMPLEADO
 							conexion.insertarEmpleado();
 						} else if (opcion2 == 2) { //hecho
 							// MODIFICAR EMPLEADO
 							conexion.modificarEmpleado();
-						} else if (opcion2 == 3) {
+						} else if (opcion2 == 3) { //hecho
 							// BORRAR EMPLEADO
 							conexion.eliminarEmpleado();
-						} else if (opcion2 == 4) {
+						} else if (opcion2 == 4) { //hecho
 							// LISTAR EMPLEADOS
 							conexion.listarEmpleados();
-						} else if (opcion2 == 5) {
+						} else if (opcion2 == 5) { //hecho
 							// LISTAR EMPLEADOS DE UN DEPARTAMENTO
 							conexion.listarEmpleadosDepartamento();
-						} else if (opcion2 == 6) {
+						} else if (opcion2 == 6) { //hecho
 							// CONSULTAR EMPLEADO POR DNI
 							conexion.consultarEmpleadoDni();
-						} else if (opcion2 == 7) {
+						} else if (opcion2 == 7) { //hecho
 							// CONSULTAR EMPLEADO CON SALARIO SUPERIOR A
 							conexion.consultarSalarioMayor();
-						} else if (opcion2 == 8) {
+						} else if (opcion2 == 8) { //hecho
 							// CONSULTAR EMPLEADO CON SALARIO IGUAL O INFERIOR A
 							conexion.consultarSalarioInferior();
 						}
@@ -73,13 +74,14 @@ public class main {
 							// MODIFICAR DEPARTAMENTO
 							conexion.modificarDepartamento();
 						} else if (opcion2 == 3) {
+							//SOLO SE PUEDE ELIMINAR SI EN EL SQL ESTA PUESTO LO DE CASCADA
 							// ELIMINAR DEPARTAMENTO
 							conexion.eliminarDepartamento();
 						} else if (opcion2 == 4) {
 							// LISTAR DEPARTAMENTOS
 							conexion.listarDepartamentos();
 						} else if (opcion2 == 5) {
-							System.out.println("Por nombre (1) o por ID (0)");
+							System.out.println("Por nombre (1) o por ID (2)");
 							int opcion3 = entrada.nextInt();
 							if (opcion3 == 1) {
 								// BUSCAR DEPARTAMENTO POR NOMBRE
@@ -90,6 +92,7 @@ public class main {
 							}
 						} else if (opcion2 == 6) {
 							//SUBIR SUELDO DE EMPLEADOS DE UN DEPARTAMENTO	
+							conexion.modificarSueldoTodosDepartamento();
 						}
 					}
 				} else {

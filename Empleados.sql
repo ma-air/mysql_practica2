@@ -24,7 +24,7 @@ CREATE TABLE `empleado` (
   `salario` FLOAT(6,2), 
   `Id_departamento` Integer(2), 
   PRIMARY KEY (`nif`),
-   FOREIGN KEY (`Id_departamento`) REFERENCES `Departamento` (`id`)
+   FOREIGN KEY (`Id_departamento`) REFERENCES `Departamento` (`id`)  ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 INSERT INTO `empleado` (`nif`, `nombre`, `apellidos`, `salario`, `Id_departamento`) VALUES ('12345678F', 'Miguel', 'Induráin', 2000, 1);
